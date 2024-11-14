@@ -43,10 +43,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: movieworlddb
-      MYSQL_USER: movieworlduser
-      MYSQL_ROOT_PASSWORD: IBAbreAbSeYburetiV
-      MYSQL_PASSWORD: IBAbreAbSeYburetiV
+      MYSQL_DATABASE: ${DB_USERNAME}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     networks:
       - app_network
 
@@ -57,8 +57,8 @@ services:
     links:
       - movieworld_db
     environment:
-      PMA_HOST: movieworld_db
-      MYSQL_ROOT_PASSWORD: IBAbreAbSeYburetiV
+      PMA_HOST: ${DB_HOST}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       PMA_PORT: 3306
     restart: always
     ports:

@@ -1,30 +1,7 @@
 # MovieWorld
 
-## Install sudo from Git bash terminal in windows.
-
-Step 1:
-
-Open a Git bash Terminal
-
-Step 2 (Optional): Install choco
-
-With PowerShell, you must ensure Get-ExecutionPolicy is not Restricted. We suggest using Bypass to bypass the policy to get things installed or AllSigned for quite a bit more security.
-
-Run
->Get-ExecutionPolicy
-
-If it returns Restricted, then run Set-ExecutionPolicy AllSigned or Set-ExecutionPolicy Bypass -Scope Process.
-Now run the following command:
-
->Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
-Paste the copied text into your shell and press Enter.
-Wait a few seconds for the command to complete.
-If you don't see any errors, you are ready to use Chocolatey! Type choco or choco -? now, or see Getting Started for usage instructions.
-
-Step 3: Install sudo
-
-> choco install sudo
+Installation of laravel with laravel installation suite
+https://laravel.com/docs/11.x#creating-a-laravel-project
 
 ## Fetch laravel packages and Bring all containers up
 
@@ -52,3 +29,14 @@ Generate a Laravel App Key.
 Run the database migrations.
 >php artisan migrate
 
+## Watching assets for changes
+
+Install all npm packages included in package.json
+
+>npm install
+
+Build the css,js files from vite.config.com
+>npm run build
+
+Compile css,js on save for development. (Optional)
+>npm run watch
