@@ -18,11 +18,22 @@ class CreateAppTables extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
 
-            $table->integer('likes')->nullable();
-            $table->integer('hates')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->timestamps();
+        });
+
+        Schema::create('movies_reactions', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('movie_id');
+            $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->enum('reaction_type', ['neutral', 'like', 'hate'])->default('neutral');
 
             $table->timestamps();
         });
@@ -37,5 +48,6 @@ class CreateAppTables extends Migration
     public function down()
     {
         Schema::dropIfExists('movies');
+        Schema::dropIfExists('movies_reactions');
     }
 }
