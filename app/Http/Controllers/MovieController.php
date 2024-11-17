@@ -45,13 +45,13 @@ class MovieController extends Controller
         // Retrieve the validated input...
         $validated = $validator->validated();
 
-        $userArray = [
+        $movieArray = [
             'title' => $validated['title'],
             'description' => $validated['description'],
             'user_id' => $user['id']
         ];
 
-        $movie = Movie::create($userArray);
+        $movie = Movie::create($movieArray);
 
         if(!$movie){
             return Redirect::route('dashboard')->with('status', 'Error creating movie. Try again!');

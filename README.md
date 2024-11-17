@@ -40,3 +40,14 @@ Build the css,js files from vite.config.com
 
 Compile css,js on save for development. (Optional)
 >npm run watch
+
+
+## PHPUnit for movies query
+
+First: run seeder to populate tables
+
+>php artisan test --filter  test_seeder tests/Unit/MoviesTest.php
+
+Second: check movies query
+
+> php artisan test --filter  test_check_movie_query tests/Unit/MoviesTest.php
